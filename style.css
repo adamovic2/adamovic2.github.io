@@ -9,7 +9,7 @@
         padding-right: 5px;
       }
 #crumbs {
-  text-align: center;
+  text-align: right;
 }
 
   #crumbs ul {
@@ -23,16 +23,16 @@
     #crumbs ul li a {
       display: block;
       float: left;
-      height: 50px;
-      background: #3498db;
+      height: 20px;
+      background: #FFB870;
       text-align: center;
       padding: 30px 40px 0 80px;
       position: relative;
       margin: 0 10px 0 0; 
       
-      font-size: 20px;
+      font-size: 10px;
       text-decoration: none;
-      color: #fff;
+      color: #FF957A;
     }
       #crumbs ul li a:after {
         content: "";  
