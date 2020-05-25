@@ -32,6 +32,8 @@ block:none;
   width: 100%;
   background-image: url("wave.png");
   background-repeat: repeat;
+    padding-left: 50%; 
+    padding-right: 50%;
 }
 
       footer {
