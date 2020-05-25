@@ -25,6 +25,15 @@ li:not(:first-child)::before {
       img:hover {
         border: 5px dotted #9317FF;
       }
+
+#regenbogen {
+block:none;
+  height: 290px;
+  width: 100%;
+  background-image: url("wave.png");
+  background-repeat: no-repeat;
+}
+
       footer {
         margin: 40px
       }
