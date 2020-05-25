@@ -3,7 +3,7 @@
         text-align: center;
         font-family: "Lucida Sans Unicode";
         font-size: 16px;
-        background-color: #FFC9C9;
+        background-color: #FFD675;
         padding-bottom: 20px;
         padding-left: 5px;
         padding-right: 5px;
@@ -71,7 +71,8 @@
       }
         #crumbs ul li a:hover:after {
           border-left-color: #fa5ba5;
-        }      
+        }  
+
       h1 {
         color: #003399;
       }
