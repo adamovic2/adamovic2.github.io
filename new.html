@@ -1,9 +1,7 @@
-    <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="de">
  <head>
-      <title> adamovic.lgbt/new.html </title>
- 
-      <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
   <meta name="generator" content="openElement (1.57.9)" />
   <link id="openElement" rel="stylesheet" type="text/css" href="WEFiles/Css/v02/openElement.css?v=50491126800" />
   <link id="siteFonts" rel="stylesheet" type="text/css" href="Files/Fonts/Fonts.css?v=50491126800" />
@@ -13,9 +11,11 @@
   <link rel="stylesheet" type="text/css" href="WEFiles/EG/EGf8c88e12/Css/jquery.vegas-v89.css?v=50491126800" />
   <link rel="stylesheet" type="text/css" href="WEFiles/EG/EGf79d11e9/Css/parallax-safe-v26.css?v=50491126800" />
   <link rel="stylesheet" type="text/css" href="WEFiles/EG/EG9f25bfab/Css/OERespPanel-v70.css?v=50491126800" />
-  
+  <!--[if lte IE 7]>
+  <link rel="stylesheet" type="text/css" href="WEFiles/Css/ie7.css?v=50491126800" />
+  <![endif]-->
   <script type="text/javascript">
-   var WEInfoPage = {"PHPVersion":"phpOK","OEVersion":"1-57-9","PagePath":"index","Culture":"DEFAULT","LanguageCode":"DE","RelativePath":"","RenderMode":"Source","PageAssociatePath":"index","EditorTexts":null};
+   var WEInfoPage = {"PHPVersion":"phpOK","OEVersion":"1-57-9","PagePath":"index","Culture":"DEFAULT","LanguageCode":"DE","RelativePath":"","RenderMode":"Export","PageAssociatePath":"index","EditorTexts":null};
   </script>
   <script type="text/javascript" src="WEFiles/Client/jQuery/1.10.2.js?v=50491126800"></script>
   <script type="text/javascript" src="WEFiles/Client/jQuery/migrate.js?v=50491126800"></script>
@@ -35,15 +35,16 @@
   <script type="text/javascript" src="WEFiles/Client/jQuery/Plugins/jquery.ui.accordion-v21.js?v=50491126800"></script>
   <script type="text/javascript" src="WEFiles/Client/WEMenuAccordion-v22.js?v=50491126800"></script>
   <style id="OEScriptManager" type="text/css">
-     
+   /* transition effect */
    .transitions, .transitions a {
    	-webkit-transition: all 1s ease;
    	-moz-transition: all 1s ease;
    	-o-transition: all 1s ease;
    	transition:	all 1s ease;
    }
-    
-    #WEToTop {
+   
+   
+   #WEToTop {
    	position:fixed !important;
    	z-index:99999 !important;
    }
@@ -51,27 +52,25 @@
    	bottom:-35px !important;
    	opacity:0;
    }
-    
-    .OESZ_DivContent > .oeip-wrapper {
+   
+   .OESZ_DivContent > .oeip-wrapper {
    	position: absolute;
    	left: 0; top: 0; right: 0; bottom: 0;
    	cursor: pointer;
    }
    .oeip-wrapper iframe {
-   	position: relative; 
+   	position: relative; /* IE needs a position other than static */
    	pointer-events: none;
    }
    .oeip-wrapper iframe.clicked {
    	pointer-events: auto;
    }
   </style>
- 
- <meta name="viewport" content="width=device-width, user-scalable=no" />
- 
- <script type="text/javascript">
- $(function(){
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+  <script type="text/javascript">
+   $(function(){
    	
-  
+   	// Button "Back to top of the page" / Bouton "Vers le haut de la page"
    
    	$('body').prepend('<a name="page-top" id="page-top">'); // create anchor at the page top
        
@@ -80,24 +79,26 @@
    	}).trigger('scroll'); // update on opening the page	
    	
    });
-$(function(){
+   $(function(){
+   	// Fix problem with "fixed"(parallax) background on iPad/iPhone
    	var userAgent = navigator.userAgent || navigator.vendor || window.opera;
    	var iOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream; // MSStream is to filter out IE11
    	if (iOS) {
    		$('.fix-iOS-bg').css('background-attachment', 'scroll');
    	}	
    });
-     
-$(function(){
+   $(function(){
+   
    	var wsTimer = null;
    	$(window).scroll(function(){
    		clearTimeout(wsTimer);
    		wsTimer = setTimeout(onScroll, 50); // avoid too many calls
    	});
    	
+   	// hide menu on clicking outside of it:
    	$('body').click(function(ev){
-   		if (!$(ev.target).closest('.OEWEMenu').length) { 
-   			$('.OEWEMenu').find('.OESZ_WEMenuGroup').stop().hide(); 
+   		if (!$(ev.target).closest('.OEWEMenu').length) { // clicked element is not inside any menu
+   			$('.OEWEMenu').find('.OESZ_WEMenuGroup').stop().hide(); // hide all menus
    		}
    	});
    	
@@ -106,11 +107,11 @@ $(function(){
    			wTop 		= $(window).scrollTop(),
    			wBottom 	= wTop + wHeight;
    		
-   		$('.OEWEMenu').each(function(){ 
+   		$('.OEWEMenu').each(function(){ // Hide popup menus on scroll when they are no longer visible
    			var $menu = $(this).find('.OESZ_WEMenuGroup');
-   			$menu.stop(); 							
-   			if ($menu.css('display') != 'none') { 	
-   				if ($menu.offset().top > wBottom-10 || ($menu.offset().top+$menu.height()) < wTop+10) { 
+   			$menu.stop(); 							// end any ongoing animation
+   			if ($menu.css('display') != 'none') { 	// currently visible
+   				if ($menu.offset().top > wBottom-10 || ($menu.offset().top+$menu.height()) < wTop+10) { // out of visible area
    					$menu.hide();
    				}
    			}
@@ -118,13 +119,11 @@ $(function(){
    	}
    
    });
-
-
+  </script>
  </head>
- <body class="RWAuto">
-
-
-<div id="XBody" class="BaseDiv RWidth OEPageXbody OESK_XBody_Default" style="z-index:1000">
+ <body class="RWAuto" data-gl="{&quot;KeywordsHomeNotInherits&quot;:false}">
+  <form id="XForm" method="post" action="#"></form>
+  <div id="XBody" class="BaseDiv RWidth OEPageXbody OESK_XBody_Default" style="z-index:1000">
    <div class="OESZ OESZ_DivContent OESZG_XBody">
     <div class="OESZ OESZ_XBodyContent OESZG_XBody OECT OECT_Content OECTRel">
      <div class="OERelLine OEHAlignC OEVAlignT">
@@ -519,7 +518,14 @@ $(function(){
     </div>
    </div>
   </div>
-  
-  
+  <script src="https://cdn.jsdelivr.net/scrollreveal.js/3.3.1/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+  $(function(){// Scroll reveal (apparition au scroll) :
+  	(new ScrollReveal()).reveal('.apply-smoove', { duration: 1000, distance: '500px' });
+  });
+  </script>
+  <script type="text/javascript">
+   $(["Files/Image/accueil/flechebas-actif.png"]).preloadImg();
+  </script>
  </body>
 </html>
